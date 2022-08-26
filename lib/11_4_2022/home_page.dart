@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sqflite_database/11_4_2022/database_helper.dart';
 import 'database_helper.dart';
@@ -5,9 +7,9 @@ import 'database_helper.dart';
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
 
-  @override
   final dbHelper = DatabaseHelper.instance;
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -48,12 +50,12 @@ class MyHomePage extends StatelessWidget {
     };
 
     final id = await dbHelper.insert(row);
-    print(id);
+    log('$id');
   }
 
   void _query() async {
     final allRows = await dbHelper.queryAllRows();
-    print('query all rows');
+    log('query all rows');
     allRows.forEach((print));
   }
 
@@ -64,6 +66,6 @@ class MyHomePage extends StatelessWidget {
       DatabaseHelper.columnAge: 23,
     };
     final rowsAffected = await dbHelper.update(row);
-    print("update $rowsAffected row(s)");
+    log("update $rowsAffected row(s)");
   }
 }

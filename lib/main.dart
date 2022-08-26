@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import '11_4_2022/home_page.dart';
+import '26August/sqflite_home.dart';
 
 void main() {
+  // avoid an error
+  WidgetsFlutterBinding.ensureInitialized;
   runApp(const MyApp());
 }
 
@@ -10,9 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: MyHomePage(),
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SqfliteHomeScreen(),
     );
   }
 }
