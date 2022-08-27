@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import '26August/sqflite_home.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+import '27AugHiveDatabase/hive_database_homescreen.dart';
+
+void main() async {
   // avoid an error
   WidgetsFlutterBinding.ensureInitialized;
+
+  await Hive.initFlutter();
+  await Hive.openBox('shopping_box');
   runApp(const MyApp());
 }
 
@@ -12,9 +17,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SqfliteHomeScreen(),
+      home: HiveDatabaseHomeScreen(),
     );
   }
 }

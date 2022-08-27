@@ -17,8 +17,14 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  # SQFlite Database
   sqflite: ^2.0.3+1
+  # for provide a path and get directory
   path_provider: ^2.0.9
+  # hive database
+  hive: ^2.2.3
+  # for running hive 
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
