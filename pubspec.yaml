@@ -25,6 +25,8 @@ dependencies:
   flutter_launcher_icons: ^0.10.0
   # format dates
   intl: ^0.17.0
+  # for api calling
+  http: ^0.13.5
 
 
 flutter_icons:

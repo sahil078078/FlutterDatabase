@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import '29AugustHibeDBWithModel/transaction_pade.dart';
+import '29AugHiveDBAndApiResponse/main_screen_hive_database.dart';
 import '29AugustHibeDBWithModel/models/transaction.dart';
 
+const String settingsBox = 'settings';
+const String apiBox = 'ApisBoxies';
 Future<void> main() async {
   // avoid an error
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,20 +13,21 @@ Future<void> main() async {
   Hive.registerAdapter(MyTransactionAdapter()); // register adapter
   await Hive.openBox('shopping_box'); // openBox
   await Hive.openBox<MyTransaction>('transactions'); // openbox
+  await Hive.openBox(settingsBox); // open new setting hive box
+  await Hive.openBox(apiBox); // open new post box
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  static const String title = 'Hive Expense App';
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: title,
+      title: 'DataBase',
       theme: ThemeData(primarySwatch: Colors.indigo),
-      home: const TransactionPage(),
+      home: const MainScreenHiveDatabase(),
     );
   }
 }
