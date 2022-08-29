@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 
-class HiveDatabaseHomeScreen extends StatefulWidget {
-  const HiveDatabaseHomeScreen({Key? key}) : super(key: key);
+class HiveDatabaseHomescreen extends StatefulWidget {
+  const HiveDatabaseHomescreen({Key? key}) : super(key: key);
 
   @override
-  State<HiveDatabaseHomeScreen> createState() => _HiveDatabaseHomeScreenState();
+  State<HiveDatabaseHomescreen> createState() => _HiveDatabaseHomescreenState();
 }
 
-class _HiveDatabaseHomeScreenState extends State<HiveDatabaseHomeScreen> {
+class _HiveDatabaseHomescreenState extends State<HiveDatabaseHomescreen> {
   final _formKey = GlobalKey<FormState>();
   List<Map<String, dynamic>> _items = [];
   final _shoppingBox = Hive.box('shopping_box');
