@@ -75,7 +75,7 @@ class HomePage extends StatelessWidget {
             return Center(
               child: Column(
                 children: [
-                  CircularProgressIndicator(),
+                  const CircularProgressIndicator(),
                   Text("${snapshot.data?.length}")
                 ],
               ),

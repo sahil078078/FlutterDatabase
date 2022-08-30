@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import '29AugHiveDBAndApiResponse/main_screen_hive_database.dart';
 import '29AugHiveDBAndApiResponse/models/apidata.dart';
 import '29AugustHibeDBWithModel/models/transaction.dart';
+import '30AugustPAgginationExample/paggination_homepage.dart';
 
 const String settingsBox = 'settings';
 const String apiBox = 'ApisBoxies';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'DataBase',
       theme: ThemeData(primarySwatch: Colors.indigo),
-      home: const MainScreenHiveDatabase(),
+      home: const PagginationHomePage(),
     );
   }
 }
