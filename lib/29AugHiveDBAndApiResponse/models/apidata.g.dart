@@ -8,7 +8,7 @@ part of 'apidata.dart';
 
 class ApiDataAdapter extends TypeAdapter<ApiData> {
   @override
-  final int typeId = 0;
+  final int typeId = 2;
 
   @override
   ApiData read(BinaryReader reader) {

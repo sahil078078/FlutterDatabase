@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 part 'apidata.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 2)
 class ApiData {
   @HiveField(0)
   int userId;

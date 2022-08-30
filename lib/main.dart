@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import '29AugHiveDBAndApiResponse/main_screen_hive_database.dart';
+import '29AugHiveDBAndApiResponse/models/apidata.dart';
 import '29AugustHibeDBWithModel/models/transaction.dart';
 
 const String settingsBox = 'settings';
@@ -11,6 +12,7 @@ Future<void> main() async {
 
   await Hive.initFlutter(); // initialization hive
   Hive.registerAdapter(MyTransactionAdapter()); // register adapter
+  Hive.registerAdapter(ApiDataAdapter());
   await Hive.openBox('shopping_box'); // openBox
   await Hive.openBox<MyTransaction>('transactions'); // openbox
   await Hive.openBox(settingsBox); // open new setting hive box

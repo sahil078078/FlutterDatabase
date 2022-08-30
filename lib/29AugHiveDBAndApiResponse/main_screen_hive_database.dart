@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 
@@ -69,10 +70,15 @@ class HomePage extends StatelessWidget {
       ),
       body: FutureBuilder<List<ApiData>>(
         future: ApiService().getPost(),
-        builder: (context, snapshot) {
+        builder: (context, AsyncSnapshot<List<ApiData>> snapshot) {
           if (!snapshot.hasData) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return Center(
+              child: Column(
+                children: [
+                  CircularProgressIndicator(),
+                  Text("${snapshot.data?.length}")
+                ],
+              ),
             );
           }
 
@@ -81,12 +87,23 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index) {
               return Card(
                 margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                child: SizedBox(
-                  height: 100,
+                child: Container(
+                  margin: const EdgeInsets.all(10),
                   width: double.infinity,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('id : ${snapshot.data!.elementAt(index).id}'),
+                      Text('ID : ${snapshot.data!.elementAt(index).id}'),
+                      Text(
+                          'UserID : ${snapshot.data!.elementAt(index).userId}'),
+                      Text(
+                        'Title: ${snapshot.data!.elementAt(index).title}',
+                        textAlign: TextAlign.justify,
+                      ),
+                      Text(
+                        'Description : ${snapshot.data!.elementAt(index).body}',
+                        textAlign: TextAlign.justify,
+                      ),
                     ],
                   ),
                 ),
@@ -101,19 +118,28 @@ class HomePage extends StatelessWidget {
 
 class ApiService {
   Future<List<ApiData>> getPost() async {
+    var myData = Hive.box(apiBox).get(
+      'bhuru',
+      defaultValue: [],
+    );
+    if (myData.isNotEmpty) {
+      log('fromHive');
+      return myData;
+    }
+    log('calling api');
     final res = await http.get(
       Uri.parse('https://jsonplaceholder.typicode.com/posts'),
     );
     final resJson = jsonDecode(res.body);
-
+    log('url : ${res.statusCode} : $res');
     List<ApiData> x = List<ApiData>.from(
       resJson.map(
         (e) => ApiData.fromJson(e),
       ),
-    ).toList();
+    ).toList(growable: true);
 
     // store in hive
-    Hive.box(apiBox).put('bhuru', x);
+    Hive.box(apiBox).put('bhuru', x); // response store in hive
     return x;
   }
 }
