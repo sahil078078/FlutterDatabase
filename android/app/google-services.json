@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1053990148905",
+    "project_id": "push-notification-demo-4f2fd",
+    "storage_bucket": "push-notification-demo-4f2fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053990148905:android:08e561bb419d200277b538",
+        "android_client_info": {
+          "package_name": "com.flutter_database_sahil_the_dark_knight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053990148905-u9b7mnjdn6kpqpcdkcaginso09hh02up.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ7tasabREe3VSuDbtEvCoGyMyLUAamtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053990148905-u9b7mnjdn6kpqpcdkcaginso09hh02up.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

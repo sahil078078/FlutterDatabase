@@ -27,6 +27,9 @@ dependencies:
   intl: ^0.17.0
   # for api calling
   http: ^0.13.5
+  # for messaging/pushNotification
+  firebase_messaging: ^13.0.0
+  firebase_core: ^1.21.1
 
 
 flutter_icons:
