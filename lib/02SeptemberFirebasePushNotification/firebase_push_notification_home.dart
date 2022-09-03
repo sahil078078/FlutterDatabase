@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'firebase_messaging.dart';
+import 'my_firebase_messaging.dart';
 
 class FirebasePushNotificationHome extends StatelessWidget {
   const FirebasePushNotificationHome({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class FirebasePushNotificationHome extends StatelessWidget {
           statusBarColor: Colors.transparent,
         ),
       ),
-      body: FirebaseMessaging(),
+      body: const MyFirebaseMessaging(),
     );
   }
 }

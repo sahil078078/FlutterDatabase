@@ -29,7 +29,12 @@ dependencies:
   http: ^0.13.5
   # for messaging/pushNotification
   firebase_messaging: ^13.0.0
-  firebase_core: ^1.21.1
+  firebase_core: ^1.21.1 
+  # for showing notifications
+  # make it easy to build toast and In-App notification. 
+  overlay_support: ^2.0.1
+  # flutter_local_notifications: ^9.9.0
+  # firebase_auth: ^3.7.0
 
 
 flutter_icons:
