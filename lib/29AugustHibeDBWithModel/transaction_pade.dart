@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'boxes.dart';
@@ -96,7 +98,7 @@ class _TransactionPageState extends State<TransactionPage> {
   ) {
     final color = transaction.isExpense ? Colors.red : Colors.green;
     final date = DateFormat.yMMMd().format(transaction.createdDate);
-    final amount = '\$' + transaction.amount.toStringAsFixed(2);
+    final amount = '\$${transaction.amount.toStringAsFixed(2)}';
 
     return Card(
       color: Colors.white,

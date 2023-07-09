@@ -13,11 +13,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   # SQFlite Database
-  sqflite: ^2.0.3+1
+  sqflite: ^2.2.8+4
   # for provide a path and get directory
-  path_provider: ^2.0.9
+  path_provider: ^2.0.15
+  path: ^1.8.3
   # for hive database
   hive: ^2.2.3
   hive_flutter: ^1.1.0
@@ -32,7 +33,7 @@ dependencies:
   firebase_core: ^2.14.0 
   # for showing notifications
   # make it easy to build toast and In-App notification. 
-  overlay_support: ^2.0.1
+  overlay_support: ^2.1.0
   # flutter_local_notifications: ^9.9.0
   # firebase_auth: ^3.7.0
 

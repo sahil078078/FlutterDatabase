@@ -34,9 +34,9 @@ class _PagginationHomePageState extends State<PagginationHomePage> {
 
       try {
         final res = await http.get(
-          Uri.parse(_baseUrl + "?_page=$_page&_limit=$_limit"),
+          Uri.parse("$_baseUrl?_page=$_page&_limit=$_limit"),
         );
-        log('resUrl  : ${_baseUrl + "?_page=$_page&_limit=$_limit"}');
+        log('resUrl  : ${"$_baseUrl?_page=$_page&_limit=$_limit"}');
         log('resCode : ${res.statusCode}');
         log('resBody : ${res.body}');
         if (res.statusCode == 200) {
@@ -69,9 +69,9 @@ class _PagginationHomePageState extends State<PagginationHomePage> {
 
     try {
       final res = await http.get(
-        Uri.parse(_baseUrl + "?_page=$_page&_limit=$_limit"),
+        Uri.parse("$_baseUrl?_page=$_page&_limit=$_limit"),
       );
-      log('resUrl  : ${_baseUrl + "?_page=$_page&_limit=$_limit"}');
+      log('resUrl  : ${"$_baseUrl?_page=$_page&_limit=$_limit"}');
       log('resCode : ${res.statusCode}');
       log('resBody : ${res.body}');
       if (res.statusCode == 200) {

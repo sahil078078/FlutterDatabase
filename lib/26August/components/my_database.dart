@@ -8,7 +8,7 @@ class MyDataBase {
   static Future<Database> initDatabase() async {
     database = await openDatabase(
       // Ensure the path is correctly for any platform
-      (await getDatabasesPath() + "hero_database.db"),
+      ("${await getDatabasesPath()}hero_database.db"),
       onCreate: (db, version) {
         return db.execute("CREATE TABLE HEROS("
             "id INTEGER PRIMARY KEY,"
