@@ -28,7 +28,7 @@ apply plugin: 'com.google.gms.google-services' // add this for firebase
 
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 32
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -38,7 +38,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.flutter_database_sahil_the_dark_knight" 
-        minSdkVersion 29 
+        minSdkVersion 32 
         targetSdkVersion flutter.targetSdkVersion
         versionCode 1  // add this for firebase
         versionName '1.0.0'  // add this for firebase
