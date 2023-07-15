@@ -1,4 +1,5 @@
-import 'package:flutter_sqflite_database/SQFLiteJune2023/note.dart';
+import 'package:flutter_sqflite_database/SQFLiteJune2023/Pages/note.dart';
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class NotesDatabase {
@@ -22,12 +23,12 @@ class NotesDatabase {
   Future<Database> _initDB(String filePath) async {
     final dbPath = await getDatabasesPath();
     final path = '$dbPath/$filePath';
-    // final path2 = join(dbPath,filePath);
+    // final path = join(dbPath, filePath);
 
     // open Database
     return await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _createDB,
     );
   }
@@ -39,13 +40,12 @@ class NotesDatabase {
     const boolType = "BOOLEAN NOT NULL";
     const integerType = "INTEGER NOT NULL";
     await db.execute("""
-    
     CREATE TABLE $tableNotes (
-      ${NoteFields.id} $idType 
-      ${NoteFields.isImportant} $boolType
-      ${NoteFields.number} $integerType
-      ${NoteFields.title} $textType 
-      ${NoteFields.description} $textType 
+      ${NoteFields.id} $idType,
+      ${NoteFields.isImportant} $boolType,
+      ${NoteFields.number} $integerType,
+      ${NoteFields.title} $textType,
+      ${NoteFields.description} $textType,
       ${NoteFields.time} $textType
     )      
     """);
@@ -98,7 +98,7 @@ class NotesDatabase {
     );
   }
 
-  Future<int> delete(int  id) async {
+  Future<int> delete(int id) async {
     final db = await instance.database;
     return await db.delete(
       tableNotes,
