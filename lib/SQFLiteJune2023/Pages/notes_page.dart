@@ -79,16 +79,21 @@ class _NotesPageState extends State<NotesPage> {
   }
 
   Widget buildNotes() => AlignedGridView.count(
+        itemCount: notes.length,
         crossAxisCount: 4,
         mainAxisSpacing: 4,
         crossAxisSpacing: 4,
+        shrinkWrap: true,
+        addAutomaticKeepAlives: true,
         itemBuilder: (context, index) {
           final note = notes[index];
           return GestureDetector(
             onTap: () async {
-              await Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => NoteDetailPage(noteId: note.id!),
-              ));
+              await Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => NoteDetailPage(noteId: note.id!),
+                ),
+              );
 
               refreshNotes();
             },

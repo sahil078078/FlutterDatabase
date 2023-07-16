@@ -2,6 +2,7 @@
     "java.configuration.updateBuildConfiguration": "interactive",
     "cSpell.enabled": true,
     "cSpell.words": [
+        "Alives",
         "AUTOINCREMENT",
         "sqflite"
     ]

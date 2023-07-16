@@ -23,6 +23,7 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
   //InitState
   @override
   void initState() {
+    debugPrint('note -> ${widget.note?.toJson()}');
     super.initState();
 
     isImportant = widget.note?.isImportant ?? false;
@@ -33,13 +34,16 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(actions: []),
+        appBar: AppBar(
+          actions: [buildButton()],
+        ),
         body: Form(
           key: _formKey,
           child: NoteFormWidget(
             isImportant: isImportant,
             number: number,
             title: title,
+            description: description,
             onChangedImportant: (_) => setState(() => isImportant = _),
             onChangedNumber: (_) => setState(() => number = _),
             onChangedTitle: (_) => setState(() => title = _),

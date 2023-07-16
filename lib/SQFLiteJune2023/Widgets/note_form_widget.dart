@@ -25,31 +25,42 @@ class NoteFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            children: [
-              Switch(
-                value: isImportant ?? false,
-                onChanged: onChangedImportant,
-              ),
-              Expanded(
-                child: Slider(
-                  value: (number ?? 0).toDouble(),
-                  onChanged: (_) => onChangedNumber(_.toInt()),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Switch(
+                  value: isImportant ?? false,
+                  onChanged: onChangedImportant,
                 ),
-              )
-            ],
-          ),
-        ],
+                Expanded(
+                  child: Slider(
+                    inactiveColor: Colors.white,
+                    divisions: 100,
+                    label: "$number",
+                    min: 0,
+                    max: 100,
+                    value: (number ?? 0).toDouble(),
+                    onChanged: (_) => onChangedNumber(_.toInt()),
+                  ),
+                )
+              ],
+            ),
+            buildTitle(),
+            const SizedBox(height: 8),
+            buildDescription(),
+            const SizedBox(height: 8)
+          ],
+        ),
       ),
     );
   }
 
   Widget buildTitle() => TextFormField(
         maxLines: 5,
-        initialValue: description,
+        initialValue: title,
         style: const TextStyle(
           color: Colors.white70,
           fontWeight: FontWeight.bold,
