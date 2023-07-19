@@ -1,5 +1,4 @@
 import 'package:flutter_sqflite_database/SQFLiteJune2023/Pages/note.dart';
-import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class NotesDatabase {

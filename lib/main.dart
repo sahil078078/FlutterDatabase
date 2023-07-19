@@ -5,6 +5,7 @@ import 'package:hive_flutter/adapters.dart';
 import '02SeptemberFirebasePushNotification/firebase_push_notification_home.dart';
 import '29AugHiveDBAndApiResponse/models/apidata.dart';
 import '29AugustHibeDBWithModel/models/transaction.dart';
+import 'SQFLiteJuly2023/grocery_home_screen.dart';
 
 const String settingsBox = 'settings';
 const String apiBox = 'ApisBoxies';
@@ -38,13 +39,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'DataBase',
       theme: ThemeData(
-          primaryColor: Colors.black,
-          scaffoldBackgroundColor: Colors.blueGrey.shade900,
-          appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.transparent,
-            elevation: 0.0,
-          )),
-      home: const NotesPage(),
+        primaryColor: Colors.black,
+        scaffoldBackgroundColor: Colors.blueGrey.shade900,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+        ),
+      ),
+      // home: const NotesPage(),
+      home: const GroceryHomeScreen(),
     );
   }
 }
