@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_sqflite_database/SQFLiteJune2023/Pages/notes_page.dart';
 import 'package:hive_flutter/adapters.dart';
-import '02SeptemberFirebasePushNotification/firebase_push_notification_home.dart';
 import '29AugHiveDBAndApiResponse/models/apidata.dart';
 import '29AugustHibeDBWithModel/models/transaction.dart';
 import 'SQFLiteJuly2023/grocery_home_screen.dart';

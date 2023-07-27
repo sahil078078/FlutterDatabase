@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_sqflite_database/SQFLiteJuly2023/grocery_class.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -46,7 +47,7 @@ class GroceryDatabase {
     final db = await instance.database;
     final groceries = await db.query(
       _tableName,
-      orderBy: 'name', // Extra
+      // orderBy: 'name', // Extra
     );
 
     return List<GroceryClass>.from(
@@ -55,4 +56,50 @@ class GroceryDatabase {
       ),
     );
   }
-} 
+
+  // Add/Create
+  Future<int> createGrocery(GroceryClass grocery) async {
+    final db = await instance.database;
+    return db.insert(_tableName, grocery.toJson());
+  }
+
+  // Remove/Delete
+  Future<int> removeGrocery(int id) async {
+    final db = await instance.database;
+    return await db.delete(
+      _tableName,
+      where: "id = ?",
+      whereArgs: [id],
+    );
+  }
+
+  // Update/Edit Grocery
+
+  Future<int> updateGrocery(GroceryClass grocery) async {
+    debugPrint('updateGrocery => ${grocery.toJson()}');
+    final db = await instance.database;
+    return await db.update(
+      _tableName,
+      grocery.toJson(),
+      where: "id = ?",
+      whereArgs: [grocery.id],
+    );
+  }
+
+  // get single grocery
+
+  Future<GroceryClass?> singleGrocery(int id) async {
+    final db = await instance.database;
+
+    final grocery = await db.query(
+      _tableName,
+      where: "id = ?",
+      whereArgs: [id],
+    );
+
+    if (grocery.isNotEmpty) {
+      return GroceryClass.fromJson(grocery.first);
+    }
+    return null;
+  }
+}
